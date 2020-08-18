@@ -19,13 +19,16 @@
       // } else {
       //   echo 'please enter data';
       // }
-      
+
       //OOP way
       $DB = new mysqli($serverName, $serverUserName, $serverPassword, $serverDB);
       if ($DB->connect_error) {
         die($DB->connect_error);
       } else {  
-        echo 'connected sucessfully to DB';
+        $query = "INSERT into users (user_email, user_password) VALUES ('$email', '$password')";
+        $result = mysqli_query($DB, $query);
+        
+        echo 'succes';
       }
       $DB->close();
     }
