@@ -1,36 +1,21 @@
 <?php
-  $serverName = 'localhost';
-  $serverUserName = 'root';
-  $serverPassword = '';
-  $serverDB = 'db_test';
+  include './db.php';
 
   if (isset($_POST['user_email']) && isset($_POST['user_password'])) {
     if (!empty($_POST['user_email']) && !empty($_POST['user_password'])) {
       $email = $_POST['user_email'];
       $password =  $_POST['user_password'];
 
-      //Procedural way
-      //   $DB = mysqli_connect($serverName, $serverUserName, $serverPassword);
-      //   if (!$DB) {
-      //     die("Failed" . mysqli_connect_error());
-      //   } else {
-      //     echo 'connected succesfully to DB';
-      //   }
-      // } else {
-      //   echo 'please enter data';
-      // }
-
-      //OOP way
-      $DB = new mysqli($serverName, $serverUserName, $serverPassword, $serverDB);
-      if ($DB->connect_error) {
-        die($DB->connect_error);
+      if (!$DB) {
+        die('Failed: ' . mysqli_connect_error());
       } else {  
         $query = "INSERT into users (user_email, user_password) VALUES ('$email', '$password')";
         $result = mysqli_query($DB, $query);
         
         echo 'succes';
       }
-      $DB->close();
+      mysqli_close($DB);
+
     }
   }
 
