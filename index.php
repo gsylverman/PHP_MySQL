@@ -9,7 +9,7 @@
       if (!$DB) {
         die('Failed: ' . mysqli_connect_error());
       } else {  
-        $query = "INSERT into users (user_email, user_password) VALUES ('$email', '$password')";
+        $query = "INSERT INTO users (user_email, user_password) VALUES ('$email', '$password')";
         $result = mysqli_query($DB, $query);
         
         echo 'succes';
@@ -20,7 +20,6 @@
   }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
