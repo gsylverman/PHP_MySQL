@@ -37,9 +37,10 @@
 <script>
   // mysqli_fetch_assoc works somethig like...
   const date = ['a', 'b', 'c', 'd', 'etc'];
-  let temp = -1;
 
   let row;
+  let temp = -1; //temporar index
+
   while (row = retriveData(date)) {
     console.log(row);
   }
