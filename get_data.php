@@ -15,7 +15,8 @@
   <title>Document</title>
 </head>
 <body>
-  <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+<!-- 1Each time when mysqli_fetch_assoc($result) is accessed, the pointer moves to the next record. At last when no records are found, it returns null which breaks the while condition. -->
+  <?php while ($row = mysqli_fetch_assoc($result)) { ?> 
     <div>
       <div>
         <?= 'id: ' . $row['id'] ?>
