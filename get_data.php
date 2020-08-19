@@ -32,3 +32,24 @@
   <?php } ?>
 </body>
 </html>
+
+<!-- ------------------------------- -->
+<script>
+  // mysqli_fetch_assoc works somethig like...
+  const date = ['a', 'b', 'c', 'd', 'etc'];
+  let temp = -1;
+
+  let row;
+  while (row = retriveData(date)) {
+    console.log(row);
+  }
+
+  function retriveData (list) {
+    temp++;
+    if (temp > list.length -1 ) {
+      return null;
+    }
+    return date[temp];
+  }
+</script>
+<!-- ------------------------------- -->
